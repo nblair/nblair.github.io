@@ -1,0 +1,28 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               Nicholas Blair
+tagline:             'Software Engineer'
+url:                 http://nblair.github.io
+baseurl:             ''
+paginate:            5
+
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
+
+
+
+# About/contact
+author:
+  name:              Nicholas Blair
+  url:               https://nblair.github.io
+  email:             nicholas.blair@gmail.com
+

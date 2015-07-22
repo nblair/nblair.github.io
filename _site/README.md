@@ -1,1 +1,0 @@
-# nblair.github.io

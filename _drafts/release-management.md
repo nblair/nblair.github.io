@@ -5,7 +5,7 @@ title: Release Management
 
 The following are the slides from a talk I am giving on Friday, October 9, 2015:
 
-https://docs.google.com/presentation/d/1l2-1ZXV75ryGG9qeThGou7ht6uHvVr4IG0J-oDmOhXk/edit?usp=sharing
+  [Release Management](https://docs.google.com/presentation/d/1l2-1ZXV75ryGG9qeThGou7ht6uHvVr4IG0J-oDmOhXk/edit?usp=sharing)
 
 The premise behind the talk is to describe why, and to some extent how, to include  "Software Releases" within your Continuous Delivery pipeline. A Software Release isn't the same thing as "deploying/shipping/rolling out" to any particular environment; those verbs are the action you perform on the deployable thing that the release creates.
 

@@ -33,27 +33,27 @@ Here are some screenshots of JIRA (task tracker and project management), Bitbuck
 
 Road Map for upcoming versions:
 
-![Road Map for upcoming versions](../public/images/release-management/1-roadmap.png)
+![Road Map for upcoming versions]({{ BASE_PATH }}/public/images/release-management/1-roadmap.png)
 
 Summary for next release:
 
-![Summary for next release](../public/images/release-management/2-upcoming.png)
+![Summary for next release]({{ BASE_PATH }}/public/images/release-management/2-upcoming.png)
 
 In progress work:
 
-![In progress work](../public/images/release-management/3-in-progress.png)
+![In progress work]({{ BASE_PATH }}/public/images/release-management/3-in-progress.png)
 
 Release notes from a prior version:
 
-![Release notes from a prior version](../public/images/release-management/4-prior-release-notes.png)
+![Release notes from a prior version]({{ BASE_PATH }}/public/images/release-management/4-prior-release-notes.png)
 
 Tags in version control:
 
-![Tags in version control](../public/images/release-management/5-scm-tags.png)
+![Tags in version control]({{ BASE_PATH }}/public/images/release-management/5-scm-tags.png)
 
 Deployable artifacts:
 
-![Deployable artifacts](../public/images/release-management/6-deployable-artifact.png)
+![Deployable artifacts]({{ BASE_PATH }}/public/images/release-management/6-deployable-artifact.png)
 
 ### Additional Resources 
 

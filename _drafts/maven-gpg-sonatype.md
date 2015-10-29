@@ -52,7 +52,7 @@ A better place is in our `~/.m2/settings.xml`; add the following to your `<profi
 </profile>
 ```
 
-Note the commented out property. There is a step during the Maven release perform goal where the gpg-plugin runs that will sign the artifacts generated for the module(s). If your key is encrypted with a passphrase, a prompt will appear. stdin for this prompt isn't reachable, so you have no way to enter it. 
+Note the commented out property. There is a step during the Maven release perform goal where the gpg-plugin runs that will sign the artifacts generated for the module(s). If your key is encrypted with a passphrase, a prompt will appear. stdin for this prompt isn't reachable, so you have no way to enter your passphrase, and the perform goal will fail. 
 
 You have 2 choices here:
 

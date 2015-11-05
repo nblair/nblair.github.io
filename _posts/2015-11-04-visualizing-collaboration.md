@@ -45,3 +45,4 @@ Description:
 
 I hope to re-visit this technique on a yearly basis. 
 
+The source material used to create this video can be found at [https://github.com/nblair/internal-apps-visualization](https://github.com/nblair/internal-apps-visualization).

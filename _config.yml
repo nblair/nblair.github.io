@@ -1,8 +1,4 @@
-# Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
-relative_permalinks: true
 
 # Setup
 title:               Nicholas Blair
@@ -18,6 +14,7 @@ sass:
   sass_dir:          _sass
   style:            :compressed
 
+gems:               [jekyll-paginate]
 
 
 # About/contact

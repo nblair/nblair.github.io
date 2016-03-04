@@ -16,6 +16,8 @@ sass:
 
 gems:               [jekyll-paginate]
 
+kramdown:
+  input: GFM
 
 # About/contact
 author:

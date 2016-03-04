@@ -47,7 +47,7 @@ public class MyWebSecurityConfiguration {
 }
 ```
 
-Determining whether Shibboleth ([pre-authentication](http://docs.spring.io/spring-security/site/docs/4.0.4.RELEASE/reference/htmlsingle/#preauth)) is enabled or a local login form is accomplished by activating one (or both) of the 2 Spring `@Profile`s the library supports; `preauth` or `local-users`, respectively. Both profiles present the exact same data model for a User:
+Determining whether Shibboleth ([pre-authentication](http://docs.spring.io/spring-security/site/docs/4.0.4.RELEASE/reference/htmlsingle/#preauth)) is enabled or a local login form is used is accomplished by activating one (or both) of the 2 Spring `@Profile`s the library supports: `preauth` or `local-users`, respectively. Both profiles present the exact same data model for a User:
 
 ```json
 {

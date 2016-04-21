@@ -45,12 +45,12 @@ Back end team works dutifully in the back-end project. These folks have JDK, Gra
 
 Front end team works dutifully in the front end of the site. They don't need to have the same IDE installed, nor do they need a JDK or Gradle. They work in text editors like Sublime or Atom. Changes they make to the site are picked up immediately, no waiting for a `gradle bootRun` to re-compile classes and run unit tests. 
 
-Node is running [superstatic-with-proxy](https://www.npmjs.com/package/superstatic-with-proxy) for 2 reasons:
+Node is running [superstatic-with-proxy](https://www.npmjs.com/package/superstatic-with-proxy) for two reasons:
 
 1. [Angular's html5mode](https://docs.angularjs.org/api/ng/provider/$locationProvider) requires that the server be capable of rewriting/forwarding requests to Angular routes back to `/index.html`.
 2. We need the REST API provided by the back-end to be served from the same domain, the -proxy fork of superstatic gives us the ability to do that.
 
-The front end developers can proxy the deployed REST API environment of their choice. The outages-integration team also publishes a docker image for local development if they need something that's not deployed.
+The front end developers can proxy the deployed REST API environment of their choice. The back-end team also publishes a docker image for local development if they need something that's not deployed.
 
 ## Assembly for deployment
 
@@ -110,5 +110,7 @@ The answer to this is yes. Running the 2 services could give you some resiliency
 
 ## Summary
 
-So, witn this approach, can the front end work in the tool chain of their choice and not have to adopt the tool chain of the back end team? It has been a bit tricky to get to this point, but we believe so. We will continue to experiment, and try to apply this same approach to other projects.
+So, with this approach, can the front end work in the tool chain of their choice and not have to adopt the tool chain of the back end team? It has been a bit tricky to get to this point, but we believe so. We will continue to experiment, and try to apply this same approach to other projects.
+
+Having one deployable out of the multiple separate sites is nice, simple to deploy. We think it is worth experimenting with deploying the two constituent projects, but there is some complexity there we aren't quite sure how to resolve.
 

@@ -1,0 +1,56 @@
+---
+layout: post
+title: Practical Release Management with Gradle and Jenkins
+tags: 
+- gradle
+- jenkins
+- java
+- maven
+- release
+- lifecycle
+---
+
+In this post I'll describe a practical approach to publishing releases of your Gradle managed project using some custom tasks and a Jenkins plugin.
+
+## Background
+
+I have a long history and extensive experience with [Maven](http://maven.apache.org). I feel really strongly that [release management is incredibly important and powerful for a project]({% post_url 2015-10-09-release-management %}), and a lot of our related processes depend on the [Maven Release Plugin](https://maven.apache.org/maven-release/maven-release-plugin/).
+
+We are working Gradle more and more into our projects. There are still a few Maven plugins and constructs I pine for, but making headway in finding equivalents, sometimes superior.
+
+Here are a couple of user stories describing what we desired:
+
+```
+As a custodian for a software project managed with Gradle
+I want contributors to the project to be required to increment the project version
+so that I can remove the overhead of tracking 'fix versions' down after the fact.
+```
+
+```
+As a contributor to a software project
+I want the continuous integration job testing my contribution to remind me to increment the version
+so that I don't forget and later artifact storage processes work correctly.
+```
+
+Basically, we want to implement [Semantic Versioning](http://semver.org), but we don't want to add a whole ton of human labor to make it happen. We have Jenkins for Continuous Integration, let's figure out a way to take the repetitive tasks of incrementing the version, tagging, uploading artifacts to Nexus, and a bit of rule enforcement.
+
+Google searches for "gradle equivalent of the maven release plugin" don't really turn up a clear winner. As I use Gradle more, I think that's the point - they leave a lot of things to your own creativity.
+
+## Idea
+
+Since we don't have a clear plugin to just start using, our idea started like this:
+
+* 2 CI Jobs in Jenkins
+  * Job 1: pull request builder. Our institution uses gitlab, so we are using [Gitlab Merge Request Builder Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Gitlab+Merge+Request+Builder+Plugin).
+     * The Jenkins 'Merge before build' step MUST come first. We won't get a chance to peek at the `version` property in build.gradle before merging the contribution.
+     * In order to get the 'last released version', let's use a tracked text file (Java Properties file format) in the repository.
+     * The gradle command we want the builder to invoke will be `gradle clean confirmProjectVersionIncremented test`. confirmProjectVersionIncremented doesn't exist, we'll write a task for that.
+  * Job 2: poll the master branch of the primary repo, uploadArchives when commits land.
+     * This will fire essentially after a pull request is merged, which means we'll have a new version in build.gradle.
+     * First `gradle clean updateProjectLast` to update our file tracking the 'last released version'. We need to write this task.
+     * Second, commit the change to the file tracking the last released version.
+     * Third, `gradle bootRepackage uploadArchives` to ship our jar to Nexus.
+     * Use the Git Publisher post-build step to push the commit, tag, and push the tag to the primary repository.
+
+     
+     

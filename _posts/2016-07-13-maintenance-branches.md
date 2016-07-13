@@ -57,7 +57,9 @@ Now we have a good branch to apply our original code change and make a maven rel
 1. Find the SHA-1 id of the commit containing the fix. If the fix is spread across multiple commits, you'll need the ids of each commit, and you'll have to repeat these commands for each one in the order they were applied. Pro tip: squash bug fix pull requests to one commit to save yourself some time.
 2. `git checkout rel-3-0-patches`. Double check you are up to date with a `git pull upstream rel-3-0-patches`.
 3. Cherry-pick the commit: `git cherry-pick ab423786...`
-4. Run the standard maven release: `mvn release:prepare && mvn release:perform`.
+4. Create a pull request for the commit targeting the upstream's rel-3-0-patches branch.
+   * Alternatively, if permissions and team workflow allow, you could just `git push upstream rel-3-0-patches`. I prefer the pull request, because it allows our Continuous Integration server to confirm the merge is successful and the tests all still pass.
+5. Run the standard maven release: `mvn release:prepare && mvn release:perform`.
 
 During the prepare phase, you'll be prompted to release `3.0.5-SNAPSHOT` and increment the version of the pom to `3.0.6-SNAPSHOT`. It's important to know that the change to the `tag` element in the `scm` block will result in that version bump commit landing on the `rel-3-0-patches` branch upstream, rather than master (that would be bad).
 

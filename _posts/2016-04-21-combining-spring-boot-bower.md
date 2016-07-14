@@ -14,6 +14,8 @@ In this post I'll describe a technique we recently employed to split a site in h
 
 We'll start with the Spring Boot runnable jar providing a REST API. With a few Maven tricks, we can combine that jar with a static site retrievable via bower, and end up with a new shippable Spring Boot runnable jar with both.
 
+*This post was updated on July 14, 2016, see the follow up [at the bottom](#experience).* 
+
 ## Background
 
 We have this site we are working on that has 2 discrete areas of focus:
@@ -113,4 +115,8 @@ The answer to this is yes. Running the 2 services could give you some resiliency
 So, with this approach, can the front end work in the tool chain of their choice and not have to adopt the tool chain of the back end team? It has been a bit tricky to get to this point, but we believe so. We will continue to experiment, and try to apply this same approach to other projects.
 
 Having one deployable out of the multiple separate sites is nice, simple to deploy. We think it is worth experimenting with deploying the two constituent projects, but there is some complexity there we aren't quite sure how to resolve.
+
+## <a name="experience"></a>Experience
+
+I've written about our experience with this project structure, make sure to read [Follow up to 'Combining Spring Boot with Bower dependencies]({% post_url 2016-07-14-spring-boot-bower-follow-up %}).
 

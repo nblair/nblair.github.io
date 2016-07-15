@@ -72,7 +72,3 @@ One drawback we've observed so far: **you will regularly need to rebase your bra
 A recent edit to the gist shows a simpler way to calculate the previous version using `git describe`. This is a big improvement, we don't have to have that dance around the project.last file.
 
 The [gradle-git plugin](https://github.com/ajoberstar/gradle-git) lets us embed git instead of having to shell out, and a [Java implementation of the Semantic Versioning spec](https://github.com/zafarkhaja/jsemver) gives us an easier way to do the math comparing version numbers. 
-
-A typo in the previous version of this post accidentally left out this task, which is now unused:
-
-<script src="https://gist.github.com/nblair/d87a44f0300d4aca3b058f2d0cb7bd19.js"></script>

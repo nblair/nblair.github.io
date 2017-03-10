@@ -139,7 +139,7 @@ Translating the experimental results back to our original problem:
 
 **In a scenario with a high miss rate, using a bloom filter allows us to avoid issuing ~95% of our client side reads. With the configuration shown, our client only issues 30,000 to 60,000 HTTP requests per million resource ids we observe on the client side.** 
 
-I estimate we can store about 800,000 ids (UUID-like Strings) per megabyte (MB) of bloom filter.
+I estimate we can store about 1,000,000 ids (UUID-like Strings) per megabyte (MB) of bloom filter at 1% false positives; that number goes to 1,300,000 at 3%.
 
 One side effect to understand with this strategy is that it may be possible for the following sequence:
 

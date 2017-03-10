@@ -11,7 +11,7 @@ tags:
 
 In this post I'll describe a unique integration project and a means for improving overall throughput with traffic avoidance. 
 
-The project inspiring this talk had a lower bound of five hundred inputs per second (1.8 million per hour) and and upper bound of several thousand inputs per second (10 million+ per hour).
+The project inspiring this post had a lower bound of five hundred inputs per second (1.8 million per hour) and and upper bound of several thousand inputs per second (10 million+ per hour).
 
 ## Scenario
 
@@ -39,7 +39,7 @@ Say each HTTP round trip takes 20 milliseconds. This would be extremely fast, in
 
 1000 requests though isn't really a problem worth talking about. What if we had a client with 1 million ids to check?
 
-1 million requests with a latency of 20 milliseconds now takes you 50,000 seconds - **or almost 14 hours** (single threaded\*). And out of that 1 million requests, you got a measly 1000 successful requests and 999,000 `404`s. Sustaining 20 milliseconds isn't likely either, so the numbers quickly will get unmanageable.
+1 million requests with a latency of 20 milliseconds now takes you 50,000 seconds - **or almost 14 hours** (single threaded\*). And out of that 1 million requests, you got a measly 1000 successful requests and 999,000 `404`s.
 
 That's *a lot* of network noise for little data. 
 
@@ -80,7 +80,7 @@ boolean mightContain(T object);
 * definitely not present, and we shouldn't bother making an HTTP request, or,
 * might be present and we should try the HTTP request.
 
-If we had a way to distribute a bloom filter populated with the `{id}`s that we have actually persisted, a client could check the filter first before making a get:
+If the service had a way to distribute a bloom filter populated with the id values that we have persisted, a client could check the filter first before making a get:
 
 ```java
 if (bloomFilter.mightContain(id)) {
